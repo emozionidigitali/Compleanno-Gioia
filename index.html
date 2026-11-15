@@ -19,7 +19,7 @@
             font-family: 'Waltograph', cursive, sans-serif;
             background: #000;
         }
-        /* Contenitore video a tutto schermo */
+        /* Contenitori video a tutto schermo */
         .fullscreen-video-container {
             position: absolute;
             top: 0;
@@ -33,6 +33,10 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            transition: opacity 1.5s ease; /* Transizione fluida per la dissolvenza */
+        }
+        #mainVideo {
+            opacity: 0; /* Partirà nascosto per poi dissolversi */
         }
         /* Overlay per disporre elementi sopra il video */
         .overlay {
@@ -49,6 +53,10 @@
             align-items: center;
             padding: 20px;
             text-align: center;
+            pointer-events: none; /* Permette di cliccare sotto se necessario, i pulsanti riattivano i click */
+        }
+        .header-content, .footer-actions {
+            pointer-events: auto; /* Riattiva i click sui contenuti */
         }
         .header-content {
             width: 100%;
@@ -122,11 +130,16 @@
 </head>
 <body>
 
-    <!-- Video a tutto schermo (impostato su muted per garantire la partenza automatica) -->
+    <!-- Video a tutto schermo: Intro (video 3) e Invito principale (video 1) -->
     <div class="fullscreen-video-container">
-        <video id="invitationVideo" autoplay loop muted playsinline>
-            <source src="video 1.mp4" type="video/mp4">
+        <!-- Intro del Castello -->
+        <video id="introVideo" autoplay muted playsinline>
+            <source src="video 3.mp4" type="video/mp4">
             Il tuo browser non supporta il tag video.
+        </video>
+        <!-- Video Principale (inizialmente nascosto, parte alla fine dell'intro) -->
+        <video id="mainVideo" loop muted playsinline style="position: absolute; top: 0; left: 0;">
+            <source src="video 1.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -136,7 +149,7 @@
             <h1>Il Compleanno di Gioia</h1>
             <div class="subtitle">✨ 2 Dicembre • Masseria Michele ✨</div>
             <!-- Pulsante per riattivare l'audio con un tap -->
-            <button class="audio-btn" onclick="let v=document.getElementById('invitationVideo'); v.muted=false; this.style.display='none';">
+            <button class="audio-btn" onclick="attivaAudio()">
                 🔊 Attiva Audio
             </button>
         </div>
@@ -147,12 +160,36 @@
                 📍 Apri Masseria Michele su Maps
             </a>
 
-            <!-- 2° Pulsante: Conferma Presenza -->
-            <a href="https://wa.me/?text=Ciao!%20Confermo%20che%20CI%20SARÒ%20al%20magico%20compleanno%20di%20Gioia%20il%202%20Dicembre!%20👑✨" class="btn-action btn-yes" target="_blank">
+            <!-- 2° Pulsante: Conferma Presenza su WhatsApp -->
+            <a href="https://wa.me/393510689798?text=Ciao!%20Confermo%20che%20CI%20SARÒ%20al%20magico%20compleanno%20di%20Gioia%20il%202%20Dicembre!%20👑✨" class="btn-action btn-yes" target="_blank">
                 ✨ Sì, ci sarò! (WhatsApp)
             </a>
         </div>
     </div>
+
+    <script>
+        const intro = document.getElementById('introVideo');
+        const main = document.getElementById('mainVideo');
+
+        // Quando l'intro (video 3) finisce, fa la dissolvenza e fa partire il video 1
+        intro.addEventListener('ended', function() {
+            intro.style.opacity = '0';
+            main.style.opacity = '1';
+            main.play();
+            setTimeout(() => {
+                intro.style.display = 'none';
+            }, 1500); // Rimuove dal DOM visivo dopo la dissolvenza
+        });
+
+        // Funzione per attivare l'audio su entrambi i video
+        function attivaAudio() {
+            intro.muted = false;
+            main.muted = false;
+            // Se l'intro è già finita, assicura che il main suoni
+            main.muted = false;
+            document.querySelector('.audio-btn').style.display = 'none';
+        }
+    </script>
 
 </body>
 </html>
