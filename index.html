@@ -2,109 +2,108 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Il Compleanno Magico di Gioia</title>
     <!-- Importazione del font ufficiale in stile Disney -->
     <link href="https://fonts.cdnfonts.com/css/waltograph" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Waltograph', cursive, sans-serif;
-            background: linear-gradient(rgba(10, 10, 30, 0.7), rgba(10, 10, 30, 0.85)), url('Disney%201.webp') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
-            margin: 0;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .main-container {
-            max-width: 480px;
-            width: 100%;
-            text-align: center;
+        * {
             box-sizing: border-box;
-            padding: 5px;
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Waltograph', cursive, sans-serif;
+            background: #000;
+        }
+        /* Contenitore video a tutto schermo */
+        .fullscreen-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        /* Overlay per sfumare e far risaltare i contenuti in primo piano */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(10,10,30,0.85) 100%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 20px;
+            text-align: center;
+        }
+        .header-content {
+            width: 100%;
+            max-width: 480px;
         }
         h1 {
             font-family: 'Waltograph', cursive, sans-serif;
             color: #ffd700;
-            margin-bottom: 2px;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 215, 0, 0.6);
             letter-spacing: 2px;
+            margin-bottom: 5px;
         }
         .subtitle {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #fff;
-            margin-bottom: 15px;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
         }
-        .video-container {
-            margin: 10px 0;
-            width: 100vw;
-            max-width: 100%;
-            border-radius: 15px;
-            overflow: hidden;
-            border: 3px solid #ffd700;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-            background: #000;
-        }
-        video {
-            width: 100%;
-            height: auto;
-            max-height: 55vh;
-            object-fit: cover;
-            display: block;
-        }
+        /* Pulsante audio flottante */
         .audio-btn {
             font-family: 'Waltograph', cursive, sans-serif;
-            background: linear-gradient(45deg, #ff4757, #ff6b81);
+            background: rgba(255, 71, 87, 0.9);
             color: white;
             border: 2px solid #fff;
-            padding: 10px 15px;
-            border-radius: 30px;
+            padding: 8px 16px;
+            border-radius: 20px;
             cursor: pointer;
-            margin: 10px 0;
+            margin-top: 10px;
             box-shadow: 0 4px 15px rgba(255, 71, 87, 0.5);
-            font-size: 1.1rem;
+            font-size: 1rem;
             letter-spacing: 1px;
             transition: transform 0.2s;
         }
         .audio-btn:hover {
             transform: scale(1.05);
         }
-        .details {
-            font-family: 'Waltograph', cursive, sans-serif;
-            background: rgba(15, 15, 35, 0.85);
-            border: 2px solid #ffd700;
-            padding: 14px;
-            margin: 15px 0;
-            text-align: left;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
-        }
-        .details p {
-            margin: 8px 0;
-            font-size: 1.2rem;
-            color: #fff;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
-            letter-spacing: 1px;
+        /* Sezione inferiore con i pulsanti */
+        .footer-actions {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 15px;
         }
         .btn-action {
             font-family: 'Waltograph', cursive, sans-serif;
             display: block;
             width: 100%;
-            box-sizing: border-box;
-            padding: 14px 20px;
+            padding: 15px 20px;
             border-radius: 50px;
             text-decoration: none;
             font-size: 1.3rem;
             letter-spacing: 1px;
-            margin: 12px 0;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
             border: 2px solid rgba(255,255,255,0.4);
             transition: transform 0.2s;
             text-align: center;
@@ -119,61 +118,40 @@
         .btn-yes {
             background: linear-gradient(45deg, #2ed573, #26af5f);
         }
-        .surprise {
-            font-family: 'Waltograph', cursive, sans-serif;
-            margin: 15px 0;
-            color: #ff9ff3;
-            font-size: 1.3rem;
-            letter-spacing: 1px;
-            background: rgba(40, 15, 60, 0.9);
-            padding: 12px;
-            border-radius: 12px;
-            border: 2px dashed #f368e0;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
-        }
     </style>
 </head>
 <body>
 
-    <div class="main-container">
-        <h1>Il Compleanno di Gioia</h1>
-        <div class="subtitle">✨ Unisciti a noi per una favola indimenticabile! ✨</div>
+    <!-- Video a tutto schermo -->
+    <div class="fullscreen-video-container">
+        <video id="invitationVideo" controls autoplay loop playsinline>
+            <source src="video 1.mp4" type="video/mp4">
+            Il tuo browser non supporta il tag video.
+        </video>
+    </div>
 
-        <!-- Video in primo piano -->
-        <div class="video-container">
-            <video id="invitationVideo" controls autoplay loop playsinline>
-                <source src="video 1.mp4" type="video/mp4">
-                Il tuo browser non supporta il tag video.
-            </video>
-        </div>
-        
-        <!-- Pulsante per attivare l'audio se bloccato dal browser -->
-        <button class="audio-btn" onclick="document.getElementById('invitationVideo').muted = false; alert('Audio attivato con successo! 🎶✨');">
-            🔊 Clicca qui se non senti l'audio del video
-        </button>
-
-        <div class="details">
-            <p>📅 Data: 2 Dicembre</p>
-            <p>⏰ Ora: 18:00</p>
-            <p>📍 Luogo: Masseria Michele</p>
-            <p>🗺️ Indirizzo: Via Ponti Rossi, 151, 80131 Napoli NA</p>
+    <!-- Contenuti sovrapposti (Titolo in alto, Pulsanti in basso) -->
+    <div class="overlay">
+        <div class="header-content">
+            <h1>Il Compleanno di Gioia</h1>
+            <div class="subtitle">✨ 2 Dicembre • Masseria Michele ✨</div>
+            <!-- Pulsante per attivare l'audio se bloccato dal browser -->
+            <button class="audio-btn" onclick="document.getElementById('invitationVideo').muted = false; alert('Audio attivato! 🎶✨');">
+                🔊 Attiva Audio
+            </button>
         </div>
 
-        <!-- 1° Pulsante: Google Maps -->
-        <a href="https://maps.google.com/?q=Via+Ponti+Rossi+151+Napoli" target="_blank" class="btn-action btn-map">
-            📍 Apri indicazioni su Google Maps
-        </a>
+        <div class="footer-actions">
+            <!-- 1° Pulsante: Google Maps -->
+            <a href="https://maps.google.com/?q=Via+Ponti+Rossi+151+Napoli" target="_blank" class="btn-action btn-map">
+                📍 Apri Masseria Michele su Maps
+            </a>
 
-        <!-- Mega Sorpresa Finale -->
-        <div class="surprise">
-            🏰✨ E alla fine... ci sarà una mega sorpresa incantata per tutti! 🎁🎉
+            <!-- 2° Pulsante: Conferma Presenza -->
+            <a href="https://wa.me/?text=Ciao!%20Confermo%20che%20CI%20SARÒ%20al%20magico%20compleanno%20di%20Gioia%20il%202%20Dicembre!%20👑✨" class="btn-action btn-yes" target="_blank">
+                ✨ Sì, ci sarò! (WhatsApp)
+            </a>
         </div>
-
-        <!-- 2° Pulsante: Conferma Presenza -->
-        <a href="https://wa.me/?text=Ciao!%20Confermo%20che%20CI%20SARÒ%20al%20magico%20compleanno%20di%20Gioia!%20👑✨" class="btn-action btn-yes" target="_blank">
-            ✨ Sì, ci sarò! (Conferma su WhatsApp)
-        </a>
     </div>
 
 </body>
