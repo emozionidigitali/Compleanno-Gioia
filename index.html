@@ -10,11 +10,11 @@
     <style>
         body {
             font-family: 'Waltograph', cursive, sans-serif;
-            background: linear-gradient(rgba(10, 10, 30, 0.6), rgba(10, 10, 30, 0.75)), url('Disney%201.webp') no-repeat center center fixed;
+            background: linear-gradient(rgba(10, 10, 30, 0.7), rgba(10, 10, 30, 0.85)), url('Disney%201.webp') no-repeat center center fixed;
             background-size: cover;
             color: #fff;
             margin: 0;
-            padding: 20px;
+            padding: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -25,47 +25,50 @@
             width: 100%;
             text-align: center;
             box-sizing: border-box;
-            padding: 10px;
+            padding: 5px;
         }
         h1 {
             font-family: 'Waltograph', cursive, sans-serif;
             color: #ffd700;
-            margin-bottom: 5px;
-            font-size: 3rem;
+            margin-bottom: 2px;
+            font-size: 2.8rem;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 215, 0, 0.6);
             letter-spacing: 2px;
         }
         .subtitle {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: #fff;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
         }
         .video-container {
-            margin: 15px 0;
-            width: 100%;
-            border-radius: 20px;
+            margin: 10px 0;
+            width: 100vw;
+            max-width: 100%;
+            border-radius: 15px;
             overflow: hidden;
-            border: 4px solid #ffd700;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            border: 3px solid #ffd700;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
             background: #000;
         }
         video {
             width: 100%;
+            height: auto;
+            max-height: 55vh;
+            object-fit: cover;
             display: block;
-            border-radius: 16px;
         }
         .audio-btn {
             font-family: 'Waltograph', cursive, sans-serif;
             background: linear-gradient(45deg, #ff4757, #ff6b81);
             color: white;
             border: 2px solid #fff;
-            padding: 12px 20px;
+            padding: 10px 15px;
             border-radius: 30px;
             cursor: pointer;
-            margin: 10px 0 20px 0;
+            margin: 10px 0;
             box-shadow: 0 4px 15px rgba(255, 71, 87, 0.5);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             letter-spacing: 1px;
             transition: transform 0.2s;
         }
@@ -76,89 +79,58 @@
             font-family: 'Waltograph', cursive, sans-serif;
             background: rgba(15, 15, 35, 0.85);
             border: 2px solid #ffd700;
-            padding: 18px;
-            margin: 20px 0;
+            padding: 14px;
+            margin: 15px 0;
             text-align: left;
-            border-radius: 15px;
+            border-radius: 12px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(5px);
         }
         .details p {
-            margin: 10px 0;
-            font-size: 1.3rem;
+            margin: 8px 0;
+            font-size: 1.2rem;
             color: #fff;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
             letter-spacing: 1px;
         }
-        .btn-map {
+        .btn-action {
             font-family: 'Waltograph', cursive, sans-serif;
-            display: inline-block;
-            background: linear-gradient(45deg, #00b4d8, #0077b6);
-            color: white;
-            padding: 14px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.3rem;
-            letter-spacing: 1px;
-            margin: 10px 0 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 180, 216, 0.5);
-            border: 2px solid rgba(255,255,255,0.3);
-            transition: transform 0.2s;
-        }
-        .btn-map:hover {
-            transform: scale(1.05);
-        }
-        .surprise {
-            font-family: 'Waltograph', cursive, sans-serif;
-            margin: 20px 0;
-            color: #ff9ff3;
-            font-size: 1.4rem;
-            letter-spacing: 1px;
-            background: rgba(40, 15, 60, 0.9);
-            padding: 15px;
-            border-radius: 15px;
-            border: 2px dashed #f368e0;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
-        }
-        .rsvp-title {
-            color: #ffd700;
-            margin-top: 30px;
-            font-size: 1.6rem;
-            font-family: 'Waltograph', cursive, sans-serif;
-            letter-spacing: 1.5px;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.9);
-        }
-        .btn-group {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 15px;
-        }
-        .btn {
-            font-family: 'Waltograph', cursive, sans-serif;
-            flex: 1;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
             padding: 14px 20px;
             border-radius: 50px;
+            text-decoration: none;
             font-size: 1.3rem;
             letter-spacing: 1px;
-            cursor: pointer;
-            text-decoration: none;
+            margin: 12px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,255,255,0.4);
+            transition: transform 0.2s;
+            text-align: center;
             color: white;
-            transition: transform 0.2s, opacity 0.2s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
         }
-        .btn:hover {
-            transform: scale(1.05);
-            opacity: 0.95;
+        .btn-action:hover {
+            transform: scale(1.03);
+        }
+        .btn-map {
+            background: linear-gradient(45deg, #00b4d8, #0077b6);
         }
         .btn-yes {
             background: linear-gradient(45deg, #2ed573, #26af5f);
-            border: 2px solid #7efff5;
         }
-        .btn-no {
-            background: linear-gradient(45deg, #ff4757, #e84118);
-            border: 2px solid #ff9999;
+        .surprise {
+            font-family: 'Waltograph', cursive, sans-serif;
+            margin: 15px 0;
+            color: #ff9ff3;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            background: rgba(40, 15, 60, 0.9);
+            padding: 12px;
+            border-radius: 12px;
+            border: 2px dashed #f368e0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
         }
     </style>
 </head>
@@ -168,7 +140,7 @@
         <h1>Il Compleanno di Gioia</h1>
         <div class="subtitle">✨ Unisciti a noi per una favola indimenticabile! ✨</div>
 
-        <!-- Video con autoplay e audio -->
+        <!-- Video in primo piano -->
         <div class="video-container">
             <video id="invitationVideo" controls autoplay loop playsinline>
                 <source src="video 1.mp4" type="video/mp4">
@@ -182,14 +154,14 @@
         </button>
 
         <div class="details">
-            <p>📅 Data: 12 Dicembre</p>
+            <p>📅 Data: 2 Dicembre</p>
             <p>⏰ Ora: 18:00</p>
             <p>📍 Luogo: Masseria Michele</p>
             <p>🗺️ Indirizzo: Via Ponti Rossi, 151, 80131 Napoli NA</p>
         </div>
 
-        <!-- Pulsante Google Maps -->
-        <a href="https://maps.google.com/?q=Via+Ponti+Rossi+151+Napoli" target="_blank" class="btn-map">
+        <!-- 1° Pulsante: Google Maps -->
+        <a href="https://maps.google.com/?q=Via+Ponti+Rossi+151+Napoli" target="_blank" class="btn-action btn-map">
             📍 Apri indicazioni su Google Maps
         </a>
 
@@ -198,11 +170,10 @@
             🏰✨ E alla fine... ci sarà una mega sorpresa incantata per tutti! 🎁🎉
         </div>
 
-        <div class="rsvp-title">Ci sarai al nostro regno incantato?</div>
-        <div class="btn-group">
-            <a href="https://wa.me/?text=Ciao!%20Confermo%20che%20CI%20SARÒ%20al%20magico%20compleanno%20di%20Gioia!%20👑✨" class="btn btn-yes" target="_blank">Sì, ci sarò</a>
-            <a href="https://wa.me/?text=Ciao!%20Purtroppo%20NON%20POTRÒ%20esserci%20al%20compleanno%20di%20Gioia.%20❤️" class="btn btn-no" target="_blank">No, non ci sarò</a>
-        </div>
+        <!-- 2° Pulsante: Conferma Presenza -->
+        <a href="https://wa.me/?text=Ciao!%20Confermo%20che%20CI%20SARÒ%20al%20magico%20compleanno%20di%20Gioia!%20👑✨" class="btn-action btn-yes" target="_blank">
+            ✨ Sì, ci sarò! (Conferma su WhatsApp)
+        </a>
     </div>
 
 </body>
