@@ -93,7 +93,7 @@
         .audio-btn:hover {
             transform: scale(1.05);
         }
-        /* Sezione inferiore con la sorpresa e i pulsanti */
+        /* Sezione inferiore con la sorpresa e i pulsanti (inizialmente nascosta per l'intro) */
         .footer-actions {
             width: 100%;
             max-width: 480px;
@@ -101,6 +101,9 @@
             flex-direction: column;
             gap: 10px;
             margin-bottom: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1.5s ease;
         }
         .surprise-box {
             background: rgba(40, 15, 60, 0.85);
@@ -144,7 +147,7 @@
 
     <!-- Video a tutto schermo: Intro (video 3) e Invito principale (video 1) -->
     <div class="fullscreen-video-container">
-        <!-- Intro del Castello (aggiunto muted per consentire l'autoplay immediato) -->
+        <!-- Intro del Castello -->
         <video id="introVideo" autoplay muted playsinline>
             <source src="video 3.mp4" type="video/mp4">
             Il tuo browser non supporta il tag video.
@@ -166,7 +169,8 @@
             </button>
         </div>
 
-        <div class="footer-actions">
+        <!-- Sezione che appare dopo l'intro (sorpresa + pulsanti) -->
+        <div class="footer-actions" id="footerActions">
             <!-- Messaggio Mega Sorpresa -->
             <div class="surprise-box">
                 🏰✨ Ci sarà una mega sorpresa incantata per tutti! 🎁🎉
@@ -187,12 +191,18 @@
     <script>
         const intro = document.getElementById('introVideo');
         const main = document.getElementById('mainVideo');
+        const footerActions = document.getElementById('footerActions');
 
-        // Quando l'intro finisce, transizione al video principale
+        // Quando l'intro finisce, transizione al video principale e comparsa della sorpresa e dei pulsanti
         intro.addEventListener('ended', function() {
             intro.style.opacity = '0';
             main.style.opacity = '1';
             main.play();
+            
+            // Fa apparire in dissolvenza la sorpresa e i pulsanti in basso
+            footerActions.style.visibility = 'visible';
+            footerActions.style.opacity = '1';
+
             setTimeout(() => {
                 intro.style.display = 'none';
             }, 1500);
