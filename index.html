@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Il Compleanno Magico di Gioia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Font in stile Disney (Waltograph) e font favoloso per il testo -->
+    <link href="https://fonts.cdnfonts.com/css/waltograph" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Quicksand', sans-serif;
-            /* Sfondo con l'immagine Disney caricata e una sfumatura scura per leggibilità */
-            background: linear-gradient(rgba(12, 11, 34, 0.7), rgba(12, 11, 34, 0.85)), url('sfondo.webp') no-repeat center center fixed;
+            /* Sfondo corretto con il nome esatto del file caricato su GitHub */
+            background: linear-gradient(rgba(10, 10, 30, 0.6), rgba(10, 10, 30, 0.75)), url('Disney%201.webp') no-repeat center center fixed;
             background-size: cover;
             color: #fff;
             margin: 0;
@@ -19,86 +21,115 @@
             align-items: center;
             min-height: 100vh;
         }
-        .card {
-            background: rgba(255, 255, 255, 0.92);
-            border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.4);
-            max-width: 500px;
+        .main-container {
+            max-width: 480px;
             width: 100%;
-            padding: 30px;
             text-align: center;
             box-sizing: border-box;
-            border: 3px solid #ffd700;
-            position: relative;
-            overflow: hidden;
-            color: #333;
-        }
-        .card::before {
-            content: "✨ ⭐ 🌟 ✨ ⭐";
-            position: absolute;
-            top: 10px;
-            left: 0;
-            right: 0;
-            font-size: 1rem;
-            letter-spacing: 10px;
-            opacity: 0.6;
+            padding: 10px;
         }
         h1 {
-            font-family: 'Cinzel', serif;
-            color: #d63384;
-            margin-top: 20px;
-            font-size: 2.2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            font-family: 'Waltograph', 'Cinzel', cursive, sans-serif;
+            color: #ffd700;
+            margin-bottom: 5px;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 215, 0, 0.6);
+            letter-spacing: 2px;
         }
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #444;
-        }
-        .details {
-            background: rgba(255, 240, 243, 0.9);
-            border-left: 6px solid #ff6b81;
-            border-right: 6px solid #ff6b81;
-            padding: 15px;
-            margin: 20px 0;
-            text-align: left;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        .subtitle {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+            font-weight: 600;
         }
         .video-container {
-            margin: 20px 0;
+            margin: 15px 0;
             width: 100%;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
             border: 4px solid #ffd700;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
             background: #000;
         }
         video {
             width: 100%;
             display: block;
-            border-radius: 12px;
+            border-radius: 16px;
+        }
+        .audio-btn {
+            background: linear-gradient(45deg, #ff4757, #ff6b81);
+            color: white;
+            border: 2px solid #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px 0 20px 0;
+            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.5);
+            font-size: 0.95rem;
+            transition: transform 0.2s;
+        }
+        .audio-btn:hover {
+            transform: scale(1.05);
+        }
+        .details {
+            background: rgba(15, 15, 35, 0.82);
+            border: 2px solid #ffd700;
+            padding: 18px;
+            margin: 20px 0;
+            text-align: left;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+        .details p {
+            margin: 8px 0;
+            font-size: 1.1rem;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
         }
         .btn-map {
             display: inline-block;
             background: linear-gradient(45deg, #00b4d8, #0077b6);
             color: white;
-            padding: 12px 25px;
+            padding: 14px 25px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            margin: 10px 0 20px 0;
-            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
+            margin: 10px 0 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 180, 216, 0.5);
+            border: 2px solid rgba(255,255,255,0.3);
             transition: transform 0.2s;
         }
         .btn-map:hover {
             transform: scale(1.05);
         }
+        .surprise {
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ff9ff3;
+            font-size: 1.2rem;
+            background: rgba(40, 15, 60, 0.88);
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px dashed #f368e0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+        }
+        .rsvp-title {
+            color: #ffd700;
+            margin-top: 30px;
+            font-size: 1.4rem;
+            font-family: 'Waltograph', cursive, sans-serif;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.9);
+        }
         .btn-group {
             display: flex;
             gap: 15px;
             justify-content: center;
-            margin-top: 25px;
+            margin-top: 15px;
         }
         .btn {
             flex: 1;
@@ -111,37 +142,29 @@
             text-decoration: none;
             color: white;
             transition: transform 0.2s, opacity 0.2s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
         }
         .btn:hover {
             transform: scale(1.05);
-            opacity: 0.9;
+            opacity: 0.95;
         }
         .btn-yes {
             background: linear-gradient(45deg, #2ed573, #26af5f);
+            border: 2px solid #7efff5;
         }
         .btn-no {
             background: linear-gradient(45deg, #ff4757, #e84118);
-        }
-        .surprise {
-            margin-top: 20px;
-            font-weight: bold;
-            color: #8854d0;
-            font-size: 1.2rem;
-            background: #f8efff;
-            padding: 12px;
-            border-radius: 10px;
-            border: 2px dashed #a55eea;
+            border: 2px solid #ff9999;
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h1>Il Magico Compleanno di Gioia</h1>
-        <p>Unisciti a noi per una favola indimenticabile!</p>
+    <div class="main-container">
+        <h1>Il Compleanno di Gioia</h1>
+        <div class="subtitle">✨ Unisciti a noi per una favola indimenticabile! ✨</div>
 
-        <!-- Video con controlli audio attivi -->
+        <!-- Video con autoplay e audio -->
         <div class="video-container">
             <video id="invitationVideo" controls autoplay loop playsinline>
                 <source src="video 1.mp4" type="video/mp4">
@@ -149,9 +172,9 @@
             </video>
         </div>
         
-        <!-- Pulsante extra per attivare l'audio se il browser lo blocca all'avvio -->
-        <button onclick="document.getElementById('invitationVideo').muted = false; alert('Audio attivato! Buon ascolto ✨');" style="background:#ffd700; border:none; padding:8px 15px; border-radius:20px; font-weight:bold; cursor:pointer; margin-bottom:15px; box-shadow:0 2px 5px rgba(0,0,0,0.2);">
-            🔊 Clicca qui se non senti l'audio
+        <!-- Pulsante per attivare l'audio se bloccato dal browser -->
+        <button class="audio-btn" onclick="document.getElementById('invitationVideo').muted = false; alert('Audio attivato con successo! 🎶✨');">
+            🔊 Clicca qui se non senti l'audio del video
         </button>
 
         <div class="details">
@@ -161,7 +184,7 @@
             <p><strong>🗺️ Indirizzo:</strong> Via Ponti Rossi, 151, 80131 Napoli NA</p>
         </div>
 
-        <!-- Pulsante diretto per Google Maps -->
+        <!-- Pulsante Google Maps -->
         <a href="https://maps.google.com/?q=Via+Ponti+Rossi+151+Napoli" target="_blank" class="btn-map">
             📍 Apri indicazioni su Google Maps
         </a>
@@ -171,7 +194,7 @@
             🏰✨ E alla fine... ci sarà una <strong>mega sorpresa</strong> incantata per tutti! 🎁🎉
         </div>
 
-        <h3 style="color: #333; margin-top: 25px;">Ci sarai al nostro regno incantato?</h3>
+        <div class="rsvp-title">Ci sarai al nostro regno incantato?</div>
         <div class="btn-group">
             <a href="https://wa.me/?text=Ciao!%20Confermo%20che%20CI%20SARÒ%20al%20magico%20compleanno%20di%20Gioia!%20👑✨" class="btn btn-yes" target="_blank">Sì, ci sarò</a>
             <a href="https://wa.me/?text=Ciao!%20Purtroppo%20NON%20POTRÒ%20esserci%20al%20compleanno%20di%20Gioia.%20❤️" class="btn btn-no" target="_blank">No, non ci sarò</a>
